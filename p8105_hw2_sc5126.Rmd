@@ -1,0 +1,7 @@
+---
+title: "p8105_hw2_sc5126"
+author: "Si Chen"
+date: "2023-10-04"
+output: github_document
+---
+
