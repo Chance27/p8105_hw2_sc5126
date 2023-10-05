@@ -36,7 +36,7 @@ Use separate() to break up the variable mon into integer variables year, month, 
 replace month number with month name; 
 create a president variable taking values gop and dem, and remove prez_dem and prez_gop; 
 and remove the day variable.
-```{r}
+```{r 1-1}
 tidy_month_data = 
   separate(month_data, col = mon, into=c('year', 'month', 'day'), sep='-', convert = TRUE) %>% 
   mutate(
@@ -64,6 +64,32 @@ tidy_month_data =
          ) |> 
   select(-prez_dem, -prez_gop, -day)
 
+```
+
+Second, clean the data in snp.csv using a similar process to the above. 
+For consistency across datasets, arrange according to year and month, 
+and organize so that year and month are the leading columns.
+```{r 1-2}
+tidy_snp_data = 
+  separate(snp_data, col = date, into=c('month', 'day', 'year'), sep='/', convert = TRUE) %>% 
+  mutate(
+    month = 
+      case_match(
+        month, 
+        1 ~ "January", 
+        2 ~ "February",
+        3 ~ "March",
+        4 ~ "April",
+        5 ~ "May",
+        6 ~ "June",
+        7 ~ "July",
+        8 ~ "August",
+        9 ~ "September",
+        10 ~ "October",
+        11 ~ "November",
+        12 ~ "December"),
+    month = as.factor(month)) %>% 
+  select(year, month, close)
 ```
 
 
