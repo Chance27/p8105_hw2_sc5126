@@ -123,6 +123,16 @@ tidy_unemployment_data =
   select(year,month,unemployment)
 ```
 
+Join the datasets by merging snp into pols, and merging unemployment into the result.
+```{r merge_data}
+tidy_snp_data$year = as.integer(paste0('20', tidy_snp_data$year))
+result_data = 
+  left_join(tidy_month_data, tidy_snp_data) %>% 
+  left_join(x=., y = tidy_unemployment_data)
+```
+
+Write a short paragraph about these datasets. Explain briefly what each dataset contained, and describe the resulting dataset (e.g. give the dimension, range of years, and names of key variables).
+
 
 
 
