@@ -156,5 +156,57 @@ The year of this dataset has a range of (`r range(result_data$year)`).\
 
 
 
+## Problem 2
+**Load dataset** 
+
+```{r problem2_Mr. Trash Wheel}
+mr_data = 
+  read_excel("data/202309 Trash Wheel Collection Data.xlsx", 
+             sheet = "Mr. Trash Wheel",
+             range="A2:N586") %>% 
+  janitor::clean_names() %>% 
+  drop_na(dumpster) %>% 
+  mutate(
+    homes_powered = (weight_tons*500) / 30,
+    type = "mr",
+    year=as.numeric(year)
+  )
+  
+```
+
+```{r problem2_Professor Trash Wheel}
+pt_data = 
+  read_excel("data/202309 Trash Wheel Collection Data.xlsx", 
+             sheet = "Professor Trash Wheel",
+             range="A2:M108") %>% 
+  janitor::clean_names() %>% 
+  drop_na(dumpster) %>% 
+  mutate(
+    homes_powered = (weight_tons*500) / 30,
+    type = "pt",
+    year=as.numeric(year)
+  )
+  
+```
+
+```{r problem2_Gwynnda Trash Wheel}
+gw_data = 
+  read_excel("data/202309 Trash Wheel Collection Data.xlsx", 
+             sheet = "Gwynnda Trash Wheel",
+             range="A2:L157") %>% 
+  janitor::clean_names() %>% 
+  drop_na(dumpster) %>% 
+  mutate(
+    homes_powered = (weight_tons*500) / 30,
+    type = "gw",
+    year=as.numeric(year)
+  )
+  
+```
+
+```{r merge_trash wheel}
+merged_trash_wheel = 
+  bind_rows(mr_data , pt_data, gw_data)
+```
 
 
