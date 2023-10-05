@@ -133,6 +133,26 @@ result_data =
 
 Write a short paragraph about these datasets. Explain briefly what each dataset contained, and describe the resulting dataset (e.g. give the dimension, range of years, and names of key variables).
 
+**Description of the dataset:**\
+For pols-month dataset:\
+The variables in the pols-month dataset include `r colnames(tidy_month_data)`. 
+There are `r nrow(tidy_month_data)` rows and `r ncol(tidy_month_data)` columns in the dataset.
+The year of this dataset has a range of (`r range(tidy_month_data$year)`).\
+
+For snp dataset:\
+The variables in the snp dataset include `r colnames(tidy_snp_data)`. 
+There are `r nrow(tidy_month_data)` rows and `r ncol(tidy_month_data)` columns in the dataset.
+The year of this dataset has a range of (`r range(tidy_snp_data$year)`).\
+
+For unemployment dataset:\
+The variables in the unemployment dataset include `r colnames(tidy_unemployment_data)`. 
+There are `r nrow(tidy_unemployment_data)` rows and `r ncol(tidy_unemployment_data)` columns in the dataset.
+The year of this dataset has a range of (`r range(tidy_unemployment_data$year)`).\
+
+For the result dataset:\
+The variables in the unemployment dataset include `r colnames(result_data)`. 
+There are `r nrow(result_data)` rows and `r ncol(result_data)` columns in the dataset.
+The year of this dataset has a range of (`r range(result_data$year)`).\
 
 
 
