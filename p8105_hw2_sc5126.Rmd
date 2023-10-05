@@ -236,6 +236,12 @@ baseline_data =
 
 ```
 
+**Discussion:**\
+We format the variable names in this dataset and encode sex and APOE4 carrier status into meaningful string values. We filter out those observations with onset age greater than current age and those without a proper onset age since they are less useful. Relevant features include id, current age, age at onset, and education, since they describe the conditions and identification of the subjects.\
+There are `r nrow(baseline_data)`participants were recruited and included in the dataset. 
+Among them, `r filter(baseline_data, age_at_onset != '.') |> nrow()` developed MCI.\
+The average baseline age is `r mean(baseline_data$current_age)`. \
+The proportion of the women in the study are APOE4 carriers is `r filter(baseline_data, sex=="Female" & apoe4 =="carrier") |> nrow() / nrow(baseline_data) *100`. 
 
 
 
