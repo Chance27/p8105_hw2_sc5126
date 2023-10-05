@@ -55,7 +55,14 @@ tidy_month_data =
         10 ~ "October",
         11 ~ "November",
         12 ~ "December"),
-    month = as.factor(month))
+    month = as.factor(month)) %>% 
+  mutate(
+    president = recode(prez_gop,
+                           "0" ="dem",
+                           "1" ="gop",
+                           "2" = "gop")
+         ) |> 
+  select(-prez_dem, -prez_gop, -day)
 
 ```
 
