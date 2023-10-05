@@ -210,3 +210,11 @@ merged_trash_wheel =
 ```
 
 
+**Description of the dataset:**\
+For the merged trash wheel dataset:\
+The main variables in the merged trash wheel dataset include dumpster number, collection date, homes powered, and type, which describes a observation's origin. 
+There are `r nrow(merged_trash_wheel)` rows and `r ncol(merged_trash_wheel)` columns in the dataset.
+The year of this dataset has a range of (`r range(merged_trash_wheel$year)`).\
+The total weight of trash collected by Professor Trash Wheel was `r sum(pt_data$weight_tons)`. \
+The total number of cigarette butts collected by Gwynnda in July of 2021 was `r filter(gw_data, month == "July", year == 2021, type== "gw") %>%  select(cigarette_butts) %>%  sum()`.
+
